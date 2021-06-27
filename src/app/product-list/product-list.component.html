@@ -11,24 +11,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let product of products" [ngClass]="{'oferta': product.oferta}">
             <td>{{product.name}}</td>
             <td>{{product.type}}</td>
-            <td><img [src]="product.image" [alt]="product.name" srcset=""></td>
-            <td>{{product.price}}</td>
-            <td>{{product.stock}}</td>
+            <td><img [src]="product.image" [alt]="product.name" class="img-fluid"></td>
+            <td>{{product.price | currency}}</td>
+            <td><span *ngIf="product.stock==0" class="badge bg-danger">SIN STOCK</span><span *ngIf="product.stock>0 " class="badge bg-success">HAY STOCK</span></td>
         </tr>
-        <tr>
-            <td>Reproductiva</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Minerales</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+
     </tbody>
 </table>
