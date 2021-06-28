@@ -8,6 +8,7 @@
             <th>Imagen</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,11 @@
             <td><img [src]="product.image" [alt]="product.name" class="img-fluid"></td>
             <td>{{product.price | currency}}</td>
             <td><span *ngIf="product.stock==0" class="badge bg-danger">SIN STOCK</span><span *ngIf="product.stock>0 " class="badge bg-success">HAY STOCK</span></td>
+            <td>
+                <button class="btn btn-primary btn-sm" (click)="downQuantity(product)">-</button>
+                <input type="text" [(ngModel)]="product.quantity" (keyup)="changeQuantity($event, product)">
+                <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+            </td>
         </tr>
 
     </tbody>
