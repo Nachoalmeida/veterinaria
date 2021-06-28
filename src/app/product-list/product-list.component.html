@@ -1,6 +1,6 @@
 <h1>PRODUCTOS</h1>
 
-<table class="table table-striped">
+<table class="table table-striped text-center">
     <thead>
         <tr>
             <th>Nombre</th>
@@ -19,9 +19,11 @@
             <td>{{product.price | currency}}</td>
             <td><span *ngIf="product.stock==0" class="badge bg-danger">SIN STOCK</span><span *ngIf="product.stock>0 " class="badge bg-success">HAY STOCK</span></td>
             <td>
-                <button class="btn btn-primary btn-sm" (click)="downQuantity(product)">-</button>
-                <input type="text" [(ngModel)]="product.quantity" (keyup)="changeQuantity($event, product)">
-                <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary btn-sm" (click)="downQuantity(product)">-</button>
+                    <input type="text" [(ngModel)]="product.quantity" (keyup)="changeQuantity($event, product)">
+                    <button class="btn btn-primary btn-sm" (click)="upQuantity(product)">+</button>
+                </div>
             </td>
         </tr>
 

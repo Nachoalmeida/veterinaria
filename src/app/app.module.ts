@@ -6,14 +6,18 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CarritoComponent } from './carrito/carrito.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; //LO AGREGO PARA PODER USAR [()]
+import { VetProductComponent } from './vet-product/vet-product.component';
+import { VetAboutComponent } from './vet-about/vet-about.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    CarritoComponent
+    CarritoComponent,
+    VetProductComponent,
+    VetAboutComponent
   ],
   imports: [
     BrowserModule,
