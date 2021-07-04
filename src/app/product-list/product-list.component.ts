@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductCartService } from '../product-cart.service';
+import { ProductDataService } from '../product-data.service';
 import { Product } from './Product';
 
 @Component({
@@ -9,7 +10,9 @@ import { Product } from './Product';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[] = [
+  products: Product[] = [];
+  
+  /**[
     {
       name: "Ivomec",
       type: "Antiparasitario",
@@ -38,13 +41,16 @@ export class ProductListComponent implements OnInit {
       quantity: 0,
     },
 
-  ];
+  ];*/
 
-  constructor(private cart: ProductCartService) {
-    
-   }
+  constructor(
+    private cart: ProductCartService,
+    private productsDataService: ProductDataService) {  
+  }
 
   ngOnInit(): void {
+    this.productsDataService.getAll()
+    .subscribe(products => this.products = products)
   }
 
   maxReached(m: string){
