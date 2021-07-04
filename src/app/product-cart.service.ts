@@ -9,7 +9,7 @@ import { Product } from './product-list/Product';
 export class ProductCartService {
 
   private _cartList: Product[] = [];
-  cartList: BehaviorSubject<Product[]> = new BehaviorSubject(this._cartList); //es igual poner ([])
+  cartList: BehaviorSubject<Product[]> = new BehaviorSubject(this._cartList);
 
   constructor() { }
   
@@ -21,7 +21,7 @@ export class ProductCartService {
       item.quantity += product.quantity;
     }
     console.log(this._cartList);
-    this.cartList.next(this._cartList); //equivalente al emit
+    this.cartList.next(this._cartList);
   }
   
 

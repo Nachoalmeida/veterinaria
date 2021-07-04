@@ -10,10 +10,6 @@ export class InputIntegerComponent implements OnInit {
 
   constructor() { }
 
-  //@Input() //->lo vinculo c el padre (product-list)
-  //product!: Product; //"!"->le permito q sea undefined, pero como ese valor lo inyecto despues con el @Input y 
-                    //debiera estar siempre dicho parametro, x lo q ese valor nunca va a ser undefined.
-
   @Input() quantity!: number;
 
   @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>();
