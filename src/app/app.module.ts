@@ -9,6 +9,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { FormsModule } from '@angular/forms'; //LO AGREGO PARA PODER USAR [()]
 import { VetProductComponent } from './vet-product/vet-product.component';
 import { VetAboutComponent } from './vet-about/vet-about.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { VetAboutComponent } from './vet-about/vet-about.component';
     ProductListComponent,
     CarritoComponent,
     VetProductComponent,
-    VetAboutComponent
+    VetAboutComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,

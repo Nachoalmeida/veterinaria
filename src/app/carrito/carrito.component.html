@@ -3,14 +3,12 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Imagen</th>
-            <th>Precio</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{carrito.name}}</td>
-            <td>{{carrito.price}}</td>
+        <tr *ngFor="let product of (cartList$ | async)">
+            <td>{{product.name}}: {{product.quantity}}</td>
         </tr>
     </tbody>
 </table>

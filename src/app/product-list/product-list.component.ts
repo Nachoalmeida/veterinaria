@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCartService } from '../product-cart.service';
 import { Product } from './Product';
 
 @Component({
@@ -33,35 +34,27 @@ export class ProductListComponent implements OnInit {
       image:"assets/img/ivomec500ml.jpg",
       price: 1585,
       stock: 5,
-      oferta: true,
+      oferta: false,
       quantity: 0,
     },
 
   ];
 
-
-  constructor() { }
+  constructor(private cart: ProductCartService) {
+    
+   }
 
   ngOnInit(): void {
   }
 
-  upQuantity(product: Product): void{
-    if(product.quantity < product.stock)
-      product.quantity ++;
-  }
+  maxReached(m: string){
+    alert(m);
+  }  
 
-  downQuantity(product: Product): void{
-    if(product.quantity > 0)
-      product.quantity --;
-  }
-
-  changeQuantity(event: any, product: Product): void{
-    //console.log(event.key);//en la consola puedo ver todo lo q esta dentro del event y utilizar cualquiera
-                          //de sus atributos. (.key, .code, .location, .defaultPrevented, etc.)
-    event.preventDefault(event.key >=0 && event.key<=9);
-    //if(event.key >=0 && event.key<=9)
-
-
+  addToCart(product: Product): void{
+    this.cart.addToCart(product)
+    product.stock -= product.quantity;
+    product.quantity = 0;
   }
 
 }
